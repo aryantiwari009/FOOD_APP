@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
 
-
 const Menu = () => {
   const [menu, setMenu] = useState([]);
 
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=29.22480&lng=79.53130&restaurantId=148023&catalog_qa=undefined&submitAction=ENTER";
-
-        const response = await fetch(MENU_API);
-
-        console.log("STATUS:", response.status);
-
-        const data = await response.json(); // ✅ correct
+        const response = await fetch("/mockData/menu.json");
+        const data = await response.json();
 
         console.log("DATA:", data);
 
@@ -71,10 +65,7 @@ const Menu = () => {
             </p>
           </div>
           <div className="item-image-section">
-            <img
-              src="/"
-              alt="pizza"
-            />
+            <img src="/" alt="pizza" />
             <button className="add-btn">ADD</button>
           </div>
         </div>
