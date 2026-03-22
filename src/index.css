@@ -1,0 +1,430 @@
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;400;700;400;900&display=swap');
+
+/* --- Global Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #282c3f;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* --- Header: Strict Single Line --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 80px; 
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.img-logo img {
+    width: 55px;
+    display: block;
+    filter: contrast(1.1);
+}
+
+.nav-items ul {
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-items li {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3d4152;
+    cursor: pointer;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.nav-items li:hover {
+    color: #fc8019;
+}
+
+.nav-links {
+    text-decoration: none;
+    color: inherit;
+}
+
+.login-btn {
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1.5px solid #282c3f;
+    background: transparent;
+    font-weight: 700;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #282c3f;
+    color: #fff;
+}
+
+/* --- Filter & Search Section: Fully Responsive --- */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    padding: 30px 5%;
+    gap: 15px;
+}
+
+.search-box {
+    display: flex;
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+    transition: border-color 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #fc8019;
+    background: #fff;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 15px;
+    font-size: 15px;
+    background: transparent;
+}
+
+.search-btn {
+    background-color: #fc8019;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filter-btn {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    border-color: #282c3f;
+    background-color: #fcfcfc;
+}
+
+/* --- Restaurant Container: 5 Column Desktop Grid --- */
+.res-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 25px;
+    padding: 0 5% 50px;
+    align-items: stretch; /* Keeps all cards in a row the same height */
+}
+
+/* --- Card with Alignment Fix --- */
+.res-card {
+    background-color: #fff;
+    border: 1px solid #f0f0f0; /* Light Outline */
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Allows "spring" alignment */
+    height: 100%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.res-card:hover {
+    border-color: #d0d0d0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+}
+
+.res-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.res-card h3 {
+    padding: 15px 15px 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #282c3f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.res-card h4 {
+    padding: 2px 15px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #686b78;
+    line-height: 1.4;
+}
+
+/* --- ALIGNMENT FIX (Spring Logic) --- */
+.res-card h4:nth-of-type(2) {
+    margin-top: auto; /* Pushes rating & time to the bottom */
+    display: inline-flex;
+    background-color: #48c479;
+    color: white;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 15px;
+    margin-bottom: 8px;
+    width: fit-content;
+}
+
+.res-card h4:last-of-type {
+    font-size: 11px;
+    font-weight: 600;
+    color: #93959f;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* --- RESPONSIVE QUERIES --- */
+
+/* Laptops (4 columns) */
+@media (max-width: 1200px) {
+    .res-container { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Tablets (3 columns) */
+@media (max-width: 992px) {
+    .res-container { grid-template-columns: repeat(3, 1fr); }
+    .header { padding: 0 3%; }
+}
+
+/* Large Mobile (2 columns) */
+@media (max-width: 768px) {
+    .res-container { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .search-box { max-width: 100%; }
+    .filter-btn { width: 100%; text-align: center; }
+}
+
+/* Small Mobile (1 column + stacked header) */
+@media (max-width: 480px) {
+    .header { 
+        height: auto; 
+        flex-direction: column; 
+        padding: 20px; 
+        gap: 15px; 
+    }
+    .res-container { grid-template-columns: 1fr; }
+    .nav-items ul { gap: 15px; font-size: 12px; }
+}
+
+/* --- Shimmer Container (Matches your res-container grid) --- */
+.shimmer-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 25px;
+    padding: 20px 5%;
+}
+
+/* --- The Shimmer Card --- */
+.shimmer-card {
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    height: 300px; /* Matches your real card height */
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- The Pulsing Animation --- */
+.shimmer-img, .shimmer-title, .shimmer-text, .shimmer-badge {
+    background: #f0f0f0;
+    background: linear-gradient(
+        to right, 
+        #f0f0f0 8%, 
+        #e0e0e0 18%, 
+        #f0f0f0 33%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+/* --- Placeholder Sizes --- */
+.shimmer-img {
+    height: 160px;
+    width: 100%;
+}
+
+.shimmer-title {
+    height: 18px;
+    width: 70%;
+    margin: 15px;
+    border-radius: 4px;
+}
+
+.shimmer-text {
+    height: 12px;
+    width: 50%;
+    margin: 0 15px;
+    border-radius: 4px;
+}
+
+.shimmer-badge {
+    height: 20px;
+    width: 40px;
+    margin: 15px;
+    border-radius: 4px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 1200px) { .shimmer-container { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 992px) { .shimmer-container { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .shimmer-container { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .shimmer-container { grid-template-columns: 1fr; } }
+
+.menu-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.breadcrumb {
+    font-size: 10px;
+    color: #93959f;
+    margin-bottom: 20px;
+}
+
+.res-container-header h1 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    padding-left: 15px;
+}
+
+/* The Boxed Info Card */
+.res-info-card {
+    border: 1px solid #e9e9eb;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.03);
+    background: linear-gradient(rgb(255, 255, 255) 0%, rgb(244, 244, 245) 100%);
+}
+
+.res-rating-row {
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.star-icon {
+    background-color: #1b8d2e;
+    color: white;
+    border-radius: 50%;
+    padding: 2px;
+    font-size: 10px;
+}
+
+.cuisines-list {
+    color: #ff5200;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-decoration: underline;
+}
+
+/* Timeline Style Outlet Info */
+.outlet-info {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.dot-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dot { width: 7px; height: 7px; background: #93959f; border-radius: 50%; }
+.line { width: 1px; height: 20px; background: #93959f; }
+
+.outlet-details p { font-size: 14px; font-weight: 700; }
+.outlet-details span { color: #93959f; font-weight: 400; margin-right: 10px;}
+
+/* Menu Items Section */
+.menu-item-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    border-bottom: 0.5px solid #d3d3d3;
+}
+
+.item-info { width: 70%; }
+
+.item-title { font-size: 18px; font-weight: 700; color: #3e4152; }
+.item-price { font-weight: 600; margin: 5px 0; }
+.item-desc { font-size: 14px; color: rgba(40,44,63,.45); line-height: 1.3; }
+
+/* Image + Overlapping ADD button */
+.item-image-section {
+    position: relative;
+    width: 156px;
+}
+
+.item-image-section img {
+    width: 156px;
+    height: 144px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.add-btn {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 40px;
+    background: white;
+    color: #1ba672;
+    border: 1px solid #d3d3d3;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 3px 8px #e9e9eb;
+}
