@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-
 const Menu = () => {
   const [menu, setMenu] = useState([]);
 
@@ -13,7 +12,7 @@ const Menu = () => {
 
         console.log("STATUS:", response.status);
 
-        const data = await response.json(); 
+        const data = await response.json(); // ✅ correct
 
         console.log("DATA:", data);
 
@@ -71,10 +70,7 @@ const Menu = () => {
             </p>
           </div>
           <div className="item-image-section">
-            <img
-              src="/"
-              alt="pizza"
-            />
+            <img src="/" alt="pizza" />
             <button className="add-btn">ADD</button>
           </div>
         </div>
