@@ -6,7 +6,7 @@ const Menu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=29.22480&lng=79.53130&restaurantId=148023&catalog_qa=undefined&submitAction=ENTER";
+        const MENU_API = "/mockData/menu.json";
 
         const response = await fetch(MENU_API);
 
@@ -18,7 +18,7 @@ const Menu = () => {
 
         setMenu(data);
       } catch (err) {
-        console.log("ERROR:", err);
+        console.log(err);
       }
     };
 
