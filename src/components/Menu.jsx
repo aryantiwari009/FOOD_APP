@@ -13,7 +13,7 @@ const Menu = () => {
 
         console.log("STATUS:", response.status);
 
-        const data = await response.json(); // ✅ correct
+        const data = await response.json(); 
 
         console.log("DATA:", data);
 
