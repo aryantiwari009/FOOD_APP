@@ -14,9 +14,9 @@ const Menu = () => {
 
         const data = await response.json(); // ✅ correct
 
-        console.log("DATA:", data);
+        console.log("DATA:", data.data.cards[4]);
 
-        setMenu(data);
+        setMenu(data.data.cards[2]);
       } catch (err) {
         console.log(err);
       }
@@ -27,7 +27,6 @@ const Menu = () => {
 
   return (
     <div className="menu-page">
-      <p className="breadcrumb">Home / Haldwani / Pizza Hut</p>
 
       <div className="res-container-header">
         <h1>Pizza Hut</h1>

@@ -1,33 +1,18 @@
 import { useEffect, useState } from "react";
 import Cards from "./Cards";
 import Shimmer from './Shimmer'
+import useResInfo from "../../utils/useResInfo";
 
-const Body = () => {
-  const [updateList, setUpdateList] = useState([]);
+const Body = () => {  
+  const updateList = useResInfo()
   const [filteredRes, setFilteredRes] = useState([]);
   const [filtered, setFiltered] = useState(true);
   const [searchText, setSearchText] = useState("");
 
+
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.22480&lng=79.53130&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
-      );
-
-      const data = await response.json();
-      setUpdateList(
-        // optional chaining
-        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants,
-      );
-      setFilteredRes(
-        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants,
-      );
-    };
-
-    fetchData();
-  }, []);
+    setFilteredRes(updateList)
+  }, [updateList])
 
   const filter = () => {
     if (filtered == true) {
