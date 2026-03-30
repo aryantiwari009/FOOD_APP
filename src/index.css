@@ -428,3 +428,37 @@ body {
     cursor: pointer;
     box-shadow: 0 3px 8px #e9e9eb;
 }
+
+/* 1. The Parent: Must be Relative */
+.img-wrapper {
+  position: relative; 
+  width: 100%;
+  height: 160px; /* Adjust height as per your design */
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 2. The Button: Must be Absolute */
+.add-btn {
+  width:80px;
+  position: absolute;
+  right: 8px;   /* Distance from right edge of image */
+  background-color: white;
+  color: #60b246; /* Green color */
+  padding: 6px 15px;
+  border: 1px solid #d3d3d3;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 10; /* Ensures it stays on top of the image */
+}
+
+.add-btn:hover {
+  background-color: #f9f9f9;
+}
